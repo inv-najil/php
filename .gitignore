@@ -1,0 +1,44 @@
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS-generated files
+*.bak
+*.tmp
+
+# Ignore log files
+*.log
+
+# Ignore uploaded files (optional)
+uploads/
+files/
+
+# Ignore environment/config files (optional if used)
+.env
+config.php
+
+# Ignore composer if not using it
+/vendor/
+
+# Ignore node modules if accidentally added
+/node_modules/
+
+# Ignore cache
+cache/
+*.cache
+
+# Ignore PHP sessions
+*.sess
+
+# Ignore backup SQL dumps
+*.sql
+*.sql.gz
+
+# Ignore test files (optional)
+tests/
