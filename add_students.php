@@ -23,8 +23,8 @@
                     <label for="age" id="age" class="form-label">Age</label>
                     <input type="number" id="age" class="form-control" placeholder="Enter age" name="age" required>
                     <label for="phone" id="phone" class="form-label">Phone</label>
-                    <input type="number" id="phone" class="form-control" placeholder="Enter phone number" name="phone" maxlength="10"
-                        required>
+                    <input type="number" id="phone" class="form-control" placeholder="Enter phone number" name="phone"
+                        maxlength="10" required>
                     <label for="email" id="email" class="form-label">Email</label>
                     <input type="email" id="email" class="form-control mb-4" placeholder="Enter email id" name="email"
                         required>
@@ -37,9 +37,24 @@
                     </select>
                     <button type="submit" id="submit" class="btn btn-primary w-100">Register</button>
                 </form>
+                <div id="messageBox" class="alert text-center" style="display: none;">
+                    <script>
+                        const params = new URLSearchParams(window.location.search);
+                        const box = document.getElementById("messageBox");
+
+                        if (params.has("error")) {
+                            box.classList.add("alert-danger");
+                            box.innerText = params.get("error");
+                            box.style.display = "block";
+                        } else if (params.has("success")) {
+                            box.classList.add("alert-success");
+                            box.innerText = "Student registered successfully!";
+                            box.style.display = "block";
+                        }
+                    </script>
+                </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>
