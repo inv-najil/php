@@ -14,18 +14,28 @@
             <div class="col-11 col-sm-8 col-md-6 col-lg-4">
                 <div class="form-box">
                     <h1 class="text-center mb-4">Login</h1>
-                    <form>
+                    <form method="post" action="auth.php">
                         <div class="mb-3">
                             <label for="username" id="username" class="form-label">Username</label>
-                            <input type="text" id="username" class="form-control" placeholder="enter username" required>
+                            <input type="text" id="username" class="form-control" placeholder="enter username"
+                                name="username" required>
                         </div>
                         <div class="mb-3">
                             <label for="password" id="password" class="form-label">Password</label>
                             <input type="password" id="password" class="form-control" placeholder="enter password"
-                                required>
+                                name="password" required>
                         </div>
                         <button type="submit" id="submit" class="btn btn-primary w-100">Login</button>
                     </form>
+                    <div class="mt-3 text-danger text-center">
+                        <script>
+                            const parms = new URLSearchParams(window.location.search);
+                            if (parms.has("error")) {
+                                document.write(parms.get("error"));
+                            }
+                        </script>
+
+                    </div>
                 </div>
             </div>
         </div>
