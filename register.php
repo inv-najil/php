@@ -24,41 +24,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 //validation
 if (!preg_match("/^[a-zA-Z]{2,}$/", $name)) {
-    die("Invalid formate, only alphabets allowd and minimum 2 characters");
+    header("Location: add_students.php?error=Invalid+name");
+    exit;
 }
 
 if (!preg_match("/^REG-\d{4}-\d{4}$/", $reg_num)) {
-    die("Invalid formate");
+    header("Location: add_students.php?error=Invalid+registration+number+format");
+    exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Invalid email");
+    header("Location: add_students.php?error=Invalid+email+format");
+    exit;
 }
 
 if ($age < 18 || $age > 25) {
-    die("Age must be between 18 and 25");
+    header("Location: add_students.php?error=Age+must+be+between+18+and+25");
+    exit;
 }
 
 if (!preg_match("/^[0-9]{10}$/", $phone)) {
-    die("Invalid phone number must be 10 digits");
+    header("Location: add_students.php?error=Invalid+phone+number");
+    exit;
 }
 
 if (!in_array($course, ['Btech', 'Mtech', 'BCA', 'MCA'])) {
-    die("Invalid course");
+    header("Location: add_students.php?error=Invalid+course");
+    exit;
 }
 
-//insert in db using preaper and bind
+// Insert into DB
 $stmt = $conn->prepare("INSERT INTO students(name,registration_number,age,phone,email,course) VALUES(?,?,?,?,?,?)");
 $stmt->bind_param("ssisss", $name, $reg_num, $age, $phone, $email, $course);
 
 if ($stmt->execute()) {
-    echo "Students added sucessfully";
+    header("Location: list_students.php?success=1");
 } else {
-    echo "Error" . $stmt->error;
+    header("Location: add_students.php?error=Email+or+Registration+Number+already+exists");
 }
 
-//closing
 $stmt->close();
 $conn->close();
-
+exit;
 ?>
