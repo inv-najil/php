@@ -12,20 +12,23 @@
         <div class="row justify-content-center align-items-center min-vh-100">
             <div class="col-11 col-sm-8 col-md-6 col-lg-4">
                 <h1 class="text-center mb-4">Register student</h1>
-                <form>
+                <form action="register.php" method="post">
                     <label for="name" id="name" class="form-label">Enter Name</label>
-                    <input type="text" id="name" class="form-control" placeholder="enter student name" required>
+                    <input type="text" id="name" class="form-control" placeholder="enter student name" name="name"
+                        required>
                     <label for="registartion_number" id="reg_num" class="form-label">Enter Registartion
                         Number</label>
                     <input type="text" id="registartion_number" class="form-control" placeholder="format: REG-YYYY-NNNN"
-                        required>
+                        name="reg_num" required>
                     <label for="age" id="age" class="form-label">Age</label>
-                    <input type="number" id="age" class="form-control" placeholder="Enter age" required>
+                    <input type="number" id="age" class="form-control" placeholder="Enter age" name="age" required>
                     <label for="phone" id="phone" class="form-label">Phone</label>
-                    <input type="number" id="phone" class="form-control" placeholder="Enter phone number" required>
+                    <input type="number" id="phone" class="form-control" placeholder="Enter phone number" name="phone" maxlength="10"
+                        required>
                     <label for="email" id="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-control mb-4" placeholder="Enter email id" required>
-                    <select id="course" class="form-control mb-4">
+                    <input type="email" id="email" class="form-control mb-4" placeholder="Enter email id" name="email"
+                        required>
+                    <select id="course" class="form-control mb-4" name="course">
                         <option value="" disabled selected>Select a course</option>
                         <option>Btech</option>
                         <option>Mtech</option>
