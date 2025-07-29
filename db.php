@@ -1,9 +1,9 @@
 <?php
 //connecting to mysql db
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'school_php';
+$host = "db";
+$user = "root";
+$password = "root";
+$dbname = "school_php";
 
 $conn = mysqli_connect($host, $user, $password, $dbname);
 
